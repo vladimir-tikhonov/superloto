@@ -124,7 +124,7 @@ class CsvStorage {
 
         const sortedData = _.sortBy(data, element => element[0]);
         const csv = ParaParse.unparse({ fields, data: sortedData });
-        fs.writeFileSync(this.filepath, csv, { encoding: 'utf8' });
+        fs.writeFileSync(this.filepath, csv, { encoding: 'utf8', flags: 'w' });
         this.dirtyRecordsCount = 0;
     }
 }
